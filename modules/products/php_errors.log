@@ -347,3 +347,101 @@
 [01-Oct-2016 17:22:09 UTC] PHP Fatal error:  Call to undefined function upload_files() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 42
 [01-Oct-2016 17:22:09 UTC] PHP Stack trace:
 [01-Oct-2016 17:22:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:09:18 UTC] PHP Fatal error:  Call to undefined function validate_user() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 21
+[02-Oct-2016 11:09:18 UTC] PHP Stack trace:
+[02-Oct-2016 11:09:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:09:18 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 11:13:30 UTC] PHP Fatal error:  Call to undefined function validate_user() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 21
+[02-Oct-2016 11:13:30 UTC] PHP Stack trace:
+[02-Oct-2016 11:13:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:13:30 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 11:45:49 UTC] PHP Warning:  move_uploaded_file(/home/ubuntu/workspace/Plantillas parte 3/media/159529102-1025640568-flowers.png): failed to open stream: No such file or directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 90
+[02-Oct-2016 11:45:49 UTC] PHP Stack trace:
+[02-Oct-2016 11:45:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:45:49 UTC] PHP   2. upload_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:94
+[02-Oct-2016 11:45:49 UTC] PHP   3. move_uploaded_file() /home/ubuntu/workspace/products_v3/utils/upload.php:90
+[02-Oct-2016 11:45:49 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpmlDte0' to '/home/ubuntu/workspace/Plantillas parte 3/media/159529102-1025640568-flowers.png' in /home/ubuntu/workspace/products_v3/utils/upload.php on line 90
+[02-Oct-2016 11:45:49 UTC] PHP Stack trace:
+[02-Oct-2016 11:45:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:45:49 UTC] PHP   2. upload_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:94
+[02-Oct-2016 11:45:49 UTC] PHP   3. move_uploaded_file() /home/ubuntu/workspace/products_v3/utils/upload.php:90
+[02-Oct-2016 11:46:35 UTC] PHP Warning:  move_uploaded_file(/home/ubuntu/workspace/Plantillas parte 3/media/1587829027-1025640568-flowers.png): failed to open stream: No such file or directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 90
+[02-Oct-2016 11:46:35 UTC] PHP Stack trace:
+[02-Oct-2016 11:46:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:46:35 UTC] PHP   2. upload_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:94
+[02-Oct-2016 11:46:35 UTC] PHP   3. move_uploaded_file() /home/ubuntu/workspace/products_v3/utils/upload.php:90
+[02-Oct-2016 11:46:35 UTC] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpIeFfB0' to '/home/ubuntu/workspace/Plantillas parte 3/media/1587829027-1025640568-flowers.png' in /home/ubuntu/workspace/products_v3/utils/upload.php on line 90
+[02-Oct-2016 11:46:35 UTC] PHP Stack trace:
+[02-Oct-2016 11:46:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 11:46:35 UTC] PHP   2. upload_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:94
+[02-Oct-2016 11:46:35 UTC] PHP   3. move_uploaded_file() /home/ubuntu/workspace/products_v3/utils/upload.php:90
+[02-Oct-2016 12:22:58 UTC] PHP Warning:  filter_input_array() expects parameter 1 to be long, array given in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 46
+[02-Oct-2016 12:22:58 UTC] PHP Stack trace:
+[02-Oct-2016 12:22:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:22:58 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 12:22:58 UTC] PHP   3. validate_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:21
+[02-Oct-2016 12:22:58 UTC] PHP   4. filter_input_array() /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php:46
+[02-Oct-2016 12:24:24 UTC] PHP Warning:  filter_input_array() expects parameter 1 to be long, array given in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 46
+[02-Oct-2016 12:24:24 UTC] PHP Stack trace:
+[02-Oct-2016 12:24:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:24:24 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 12:24:24 UTC] PHP   3. validate_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:21
+[02-Oct-2016 12:24:24 UTC] PHP   4. filter_input_array() /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php:46
+[02-Oct-2016 12:28:33 UTC] PHP Warning:  filter_input_array() expects parameter 1 to be long, array given in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 46
+[02-Oct-2016 12:28:33 UTC] PHP Stack trace:
+[02-Oct-2016 12:28:33 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:28:33 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 12:28:33 UTC] PHP   3. validate_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:21
+[02-Oct-2016 12:28:33 UTC] PHP   4. filter_input_array() /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php:46
+[02-Oct-2016 12:37:09 UTC] PHP Warning:  filter_input_array() expects parameter 1 to be long, array given in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 46
+[02-Oct-2016 12:37:09 UTC] PHP Stack trace:
+[02-Oct-2016 12:37:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:37:09 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 12:37:09 UTC] PHP   3. validate_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:27
+[02-Oct-2016 12:37:09 UTC] PHP   4. filter_input_array() /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php:46
+[02-Oct-2016 12:44:08 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 10
+[02-Oct-2016 12:44:09 UTC] PHP Stack trace:
+[02-Oct-2016 12:44:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:44:58 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 10
+[02-Oct-2016 12:44:58 UTC] PHP Stack trace:
+[02-Oct-2016 12:44:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:45:19 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 10
+[02-Oct-2016 12:45:19 UTC] PHP Stack trace:
+[02-Oct-2016 12:45:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:46:49 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 10
+[02-Oct-2016 12:46:49 UTC] PHP Stack trace:
+[02-Oct-2016 12:46:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 12:47:27 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 10
+[02-Oct-2016 12:47:27 UTC] PHP Stack trace:
+[02-Oct-2016 12:47:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:03:59 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:03:59 UTC] PHP Stack trace:
+[02-Oct-2016 13:03:59 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:03:59 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:05:13 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:05:13 UTC] PHP Stack trace:
+[02-Oct-2016 13:05:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:05:13 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:06:07 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:06:07 UTC] PHP Stack trace:
+[02-Oct-2016 13:06:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:06:07 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:06:22 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:06:22 UTC] PHP Stack trace:
+[02-Oct-2016 13:06:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:06:22 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:07:09 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:07:09 UTC] PHP Stack trace:
+[02-Oct-2016 13:07:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:07:09 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:07:45 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:07:45 UTC] PHP Stack trace:
+[02-Oct-2016 13:07:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:07:45 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:15:40 UTC] PHP Warning:  Illegal string offset 'name' in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 39
+[02-Oct-2016 13:15:40 UTC] PHP Stack trace:
+[02-Oct-2016 13:15:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 13:15:40 UTC] PHP   2. discharge_products() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:14
+[02-Oct-2016 13:33:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 223
+[02-Oct-2016 13:33:39 UTC] PHP Stack trace:
+[02-Oct-2016 13:33:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0

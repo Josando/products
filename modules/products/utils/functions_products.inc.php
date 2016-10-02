@@ -1,13 +1,14 @@
 <?php
 
-function validate_products() {
+function validate_products($productsJSON) {//Le entraran los valores decodificados  del json
     $error = array();
     $valido = true;
-    $filtro = array(
+    $filtro = array(//De momento solo pruebo el nombre
         'name' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
-            'options' => array('regexp' => '/^[A-Za-z]{2,30}$/')
-        ),
+          'options' => array('regexp' => '/^[A-Z]{2,30}$/')
+        )
+    /*,
         'code' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
             'options' => array('regexp' => '/^[0-9a-zA-Z]{6,32}$/')
@@ -39,11 +40,13 @@ function validate_products() {
         'email' => array(
             'filter' => FILTER_CALLBACK,
             'options' => 'valida_email'
-        ),
+        ),*/
     );
 
 
-    $resultado = filter_input_array(INPUT_POST, $filtro);
+    $resultado = filter_var_array($productsJSON, $filtro);//$value ya no vienen por $_POST
+    
+    /*
 
     //no filter
     $resultado['type'] = $_POST['type'];
@@ -51,6 +54,8 @@ function validate_products() {
     $resultado['brand'] = $_POST['brand'];
     $resultado['stock'] = $_POST['stock'];
     $resultado['material'] = $_POST['material'];
+
+*/
 
 /*
     if ($resultado['birth_date']) {
@@ -63,7 +68,7 @@ function validate_products() {
         }
     }
 
-*/
+*//**
     if ($resultado['date_reception'] && $resultado['departure_date']) {
         //compare date of birth with title_date
         $dates = valida_dates($_POST['date_reception'], $_POST['departure_date']);
@@ -99,14 +104,19 @@ function validate_products() {
         $error['material'] = "Select 2 or more.";
         $valido =  false;
     }
+    
+    
+    */
 
-    if ($resultado != null && $resultado) {
+   if ($resultado != null && $resultado) {
 
 
         if (!$resultado['name']) {
-            $error['name'] = 'Name must be 2 to 30 letters';
-            $valido = false;
+           $error['name'] = 'Name must be 2 to 30 letters';
+           $valido = false;
         }
+
+/*
 
         if (!$resultado['code']) {
             $error['code'] = 'Code must be 6 to 30 letters';
@@ -160,10 +170,16 @@ function validate_products() {
                 $valido = false;
             }
         }
+        
+        */
     } else {
+        
         $valido = false;
-    };
-    return $return = array('resultado' => $valido, 'error' => $error, 'datos' => $resultado);
+};
+    
+    //return $return = array('resultado' => $valido, 'error' => $error, 'datos' => $resultado);
+   //return $return = array('resultado' => true, 'datos' => "jorge");
+   return $return = array('resultado' => $valido, 'error' => $error, 'datos' => $resultado);
 }
 
 function valida_dates($in_date, $out_date) {

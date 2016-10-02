@@ -1,3 +1,5 @@
+
+   <!-- <script type="text/javascript" src="modules/products/view/js/list_products.js" ></script>-->
 		<div id="main">
 
             <h2>ADD PRODUCT</h2>

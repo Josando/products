@@ -289,7 +289,7 @@
 
                     <div class="msg"></div>
                     <br/>
-                    <div style="margin-right:800px " id="dropzone" class="dropzone" ></div><br/>
+                    <div style="margin-right:1000px " id="dropzone" class="dropzone" ></div><br/>
                     <br/>
                     <br/>
                     <br/>

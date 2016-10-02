@@ -441,15 +441,22 @@ function validate_products(){
 
         var data_products_JSON = JSON.stringify(data); 
 
+        
         $.post('modules/products/controller/controller_products.class.php',
                 {discharge_products_json: data_products_JSON},
         function (response) {
-            console.log(response);
-            console.log(response.name);
+            //console.log("hola");
+            //console.log(response);
+            if (response.success) {
+                window.location.href = response.redirect;
+               
+                
+            }
+            //console.log(response.name);
             //console.log(response.redirect3.product_name);
 
         }, "json").fail(function (xhr) {
-            console.log(xhr.responseJSON);
+            console.log(xhr.responseJSON.error.name);//devuelve si hay error en el nombre
         });
     }
     

@@ -78,7 +78,7 @@ function upload_files() {
             $nombreFichero = $idUnico."-".$_FILES['file']['name'];
             $copiarFichero = true;
             // I use absolute route to move_uploaded_file because this happens when i run ajax
-           $upfile = $_SERVER['DOCUMENT_ROOT'].'/Plantillas parte 3/media/'.$nombreFichero;
+           $upfile = $_SERVER['DOCUMENT_ROOT'].'/products_v3/media/'.$nombreFichero;
         }else{
                 $error .=   "Invalid File...";
         }
