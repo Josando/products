@@ -1,31 +1,26 @@
-
-   <!-- <script type="text/javascript" src="modules/products/view/js/list_products.js" ></script>-->
 		<div id="main">
 
             <h2>ADD PRODUCT</h2>
             <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-       
-       
-      
-       
-            <?php
-            
-            $products = $_SESSION['products'];
-            $msage = $_SESSION['msje'];
-            
 
-            foreach ($products as $indice => $valor) {
-                if ($indice == 'material') {
-                    echo "<br><b>Material:</b><br>";
-                    $materials = $products['material'];
-                    foreach ($materials as $indice => $valor) {
-                        echo "<b>---> $indice</b>: $valor<br>";
-                    }
-                } else {
-                    echo "<br><b>$indice</b>: $valor";
-                }
-            }
-            echo "<br>" . "<b style='color:green'>" . $msage;
-            ?>
+
+             <div id="content"></div>
+             <script type="text/javascript" src="modules/products/view/js/list_products.js" ></script>
+
+
+
+
+
+
+
+
         </div>
-    
+<!-- Tweet -->
+		<div id="tweet">
+			<div class="container">
+				<section>
+					<blockquote>&ldquo;In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat.&rdquo;</blockquote>
+				</section>
+			</div>
+		</div>
+	<!-- /Tweet -->

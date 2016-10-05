@@ -1,10 +1,12 @@
 <?php 
+	session_start();
+	$_SESSION['result_avatar'] = array();
 	require_once("view/inc/header.html"); 
 	require_once("view/inc/menu.php");
 	
 	include 'utils/utils.inc.php';
 	
-	session_start();
+	
 
 	if (!isset($_GET['module'])) {
 		

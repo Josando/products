@@ -17,14 +17,14 @@ session_start();
 	function discharge_products() {//Ahora que se que funciona dropzone implemento la funcion completa de cargar los productos
 	  	$jsondata = array();
 	  	$productsJSON = json_decode($_POST["discharge_products_json"], true);
+	 /*
+		$jsondata["name"]=$productsJSON['name'];
 
-	//	$jsondata["name"]=$productsJSON['name'];
-		/*
 		$jsondata["success"]=true;
 
 	  echo json_encode($jsondata);
-	 */
 
+	 */
 	  	$result = validate_products($productsJSON);
 
 	//	$result['resultado']=true;
@@ -61,9 +61,10 @@ session_start();
         $_SESSION['products'] = $arrArgument;
         $_SESSION['msje'] = $mensaje;
         $callback = "index.php?module=products&view=results_products";
-
+        $jsondata["redirect1"]= $result_avatar['datos'];
         $jsondata["success"] = true;
         $jsondata["redirect"] = $callback;
+         //$jsondata["redirect1"] =  $_SESSION['products']['avatar'];
         //$jsondata["redirect1"] =  $result['datos']['name'];
         echo json_encode($jsondata);
         exit;
@@ -74,7 +75,7 @@ session_start();
         $jsondata["error"] = $result['error'];
         $jsondata["error_avatar"] = $result_avatar['error'];
 
-       //$jsondata["success1"] = false;
+       $jsondata["success1"] = false;
         if ($result_avatar['resultado']) {
             $jsondata["success1"] = true;
             $jsondata["img_avatar"] = $result_avatar['datos'];
@@ -93,9 +94,13 @@ session_start();
 
 //////////////////////////
 if (isset($_GET["delete"]) && $_GET["delete"] == true) {
-	$result = remove_files();
-	echo json_encode($result);
-	exit;
+    $_SESSION['result_avatar'] = array();
+    $result = remove_files();
+    if ($result === true) {
+        echo json_encode(array("res" => true));
+    } else {
+       echo json_encode(array("res" => false));
+    }
 }
 
 
@@ -103,21 +108,21 @@ if (isset($_GET["delete"]) && $_GET["delete"] == true) {
 if ((isset($_GET["upload"])) && ($_GET["upload"] == true)) {
 		$result_avatar = upload_files();
 		$_SESSION['result_avatar'] = $result_avatar;
-		//echo json_encode($result_avatar);
-		exit();
+		echo json_encode($result_avatar);
+	//	exit();
 }
-///////////////////////////Se añade la funcion load
+///////////////////////////
 if (isset($_GET["load"]) && $_GET["load"] == true) {
     $jsondata = array();
     if (isset($_SESSION['products'])) {
-        echo debug($_SESSION['products']);
+        //echo debug($_SESSION['products']);
         $jsondata["products"] = $_SESSION['products'];
     }
     if (isset($_SESSION['msje'])) {
-        echo $_SESSION['msje'];
+        //echo $_SESSION['msje'];
         $jsondata["msje"] = $_SESSION['msje'];
     }
-    close_session();
+    //close_session();
     echo json_encode($jsondata);
     exit;
 }

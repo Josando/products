@@ -2,7 +2,7 @@
 
 jQuery.fn.fill_or_clean = function () {
     this.each(function () {
-        
+
         if ($("#name").attr("value") == "") {
             $("#name").attr("value", "Enter name");
             $("#name").focus(function () {
@@ -123,7 +123,7 @@ jQuery.fn.fill_or_clean = function () {
                 $("#departure_date").attr("value", "Enter depurate date");
             }
         });
-        
+
 */
     });//each
     return this;
@@ -132,43 +132,44 @@ jQuery.fn.fill_or_clean = function () {
 
 Dropzone.autoDiscover = false;
 $(document).ready(function () {
-    
-    
-    
+
+
+
   			$(function() {
-    
+
     		$('#date_reception').datepicker({
-			dateFormat: 'dd/mm/yy', 
-			changeMonth: true, 
-			changeYear: true, 
+			dateFormat: 'dd/mm/yy',
+			changeMonth: true,
+			changeYear: true,
 			yearRange: '1940:2020',
-			
+
 			onSelect: function(selectedDate) {
-			
+
 			}
 		});
-    		
-    	
+
+
   		});
-  		
+
   		$(function() {
-    
+
     		$('#departure_date').datepicker({
-			dateFormat: 'dd/mm/yy', 
-			changeMonth: true, 
-			changeYear: true, 
+			dateFormat: 'dd/mm/yy',
+			changeMonth: true,
+			changeYear: true,
 			yearRange:  '2000:9999',//'1900:' + new Date().getFullYear(),
-			
+
 			onSelect: function(selectedDate) {
-			
+
 			}
 		});
-    		
-    		
+
+
   		});
-    
-    
-     $("#dropzone").dropzone({
+
+
+    //Dropzone function //////////////////////////////////
+    $("#dropzone").dropzone({
         url: "modules/products/controller/controller_products.class.php?upload=true",
         addRemoveLinks: true,
         maxFileSize: 1000,
@@ -176,16 +177,15 @@ $(document).ready(function () {
         acceptedFiles: 'image/*,.jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF,.rar,application/pdf,.psd',
         init: function () {
             this.on("success", function (file, response) {
-                //alert(response); este alert mestra i funciona bien el upload mostrando si hay error o no
-                
+                //alert(response);
+
                 console.log(response);
-                /*
+                console.log(file);
                 $("#progress").show();
                 $("#bar").width('100%');
                 $("#percent").html('100%');
                 $('.msg').text('').removeClass('msg_error');
                 $('.msg').text('Success Upload image!!').addClass('msg_ok').animate({'right': '300px'}, 300);
-            */
             });
         },
         complete: function (file) {
@@ -203,16 +203,14 @@ $(document).ready(function () {
                 url: "modules/products/controller/controller_products.class.php?delete=true",
                 data: "filename=" + name,
                 success: function (data) {
-                    
-                     console.log("Borrada la imagen");
-                    
-                    /*
                     $("#progress").hide();
                     $('.msg').text('').removeClass('msg_ok');
                     $('.msg').text('').removeClass('msg_error');
                     $("#e_avatar").html("");
-*/
+                    console.log(data);
+                    console.log(name);
                     var json = JSON.parse(data);
+                    console.log(json);
                     if (json.res === true) {
                         var element;
                         if ((element = file.previewElement) != null) {
@@ -246,12 +244,12 @@ $(document).ready(function () {
     var origin_reg = /^[0-9a-zA-Z]{2,20}$/;
     var provider_reg = /^[0-9a-zA-Z]{2,20}$/;
     var price_reg = /^[0-9]{2,10}$/;
-    
+
 
     $("#submit_product").click(function () {
-        
+
         validate_products();
-     
+
 });
 
 
@@ -331,7 +329,7 @@ $(document).ready(function () {
 
 
 function validate_products(){
-    
+
     var result = true;
     //Get form elements by id
     var name = document.getElementById('name').value;
@@ -347,9 +345,9 @@ function validate_products(){
     var origin_reg = /^[0-9a-zA-Z]{2,20}$/;
     var provider_reg = /^[0-9a-zA-Z]{2,20}$/;
     var price_reg = /^[0-9]{2,10}$/;
-    
-    
-    
+
+
+
     $(".error").remove();
         if ($("#name").val() == "" || $("#name").val() == "Enter name") {
             $("#name").focus().after("<span class='error'> Enter name</span>");
@@ -429,29 +427,29 @@ function validate_products(){
             $("#departure_date").focus().after("<span class='error'>The date is not correct.</span>");
             return false;
         }
-        
+
         */
-        
+
     console.log("Antes de que se envian los datos al servidor");
     //Si ha ido todo bien, se envian los datos al servidor
-    
+
      if (result) {
-          
+
         var data = {"name": name};
 
-        var data_products_JSON = JSON.stringify(data); 
+        var data_products_JSON = JSON.stringify(data);
 
-        
+
         $.post('modules/products/controller/controller_products.class.php',
                 {discharge_products_json: data_products_JSON},
         function (response) {
             //console.log("hola");
-            //console.log(response);
+            console.log(response);
             if (response.success) {
                 window.location.href = response.redirect;
-               
-                
-            }
+
+
+        }
             //console.log(response.name);
             //console.log(response.redirect3.product_name);
 
@@ -459,6 +457,6 @@ function validate_products(){
             console.log(xhr.responseJSON.error.name);//devuelve si hay error en el nombre
         });
     }
-    
-    
+
+
 }

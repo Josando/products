@@ -71,10 +71,12 @@ function upload_files() {
         */
 
     ////////////////////////////////////////////////////////////////////////////
+
    $upfile = $_SERVER['DOCUMENT_ROOT'].'/products_v3/media/'.$_FILES['avatar']['name'];
     if (is_uploaded_file($_FILES['file']['tmp_name'])){
         if (is_file($_FILES['file']['tmp_name'])) {
             $idUnico = rand();
+            //$_FILES['file']['name']=$idUnico."-".$_FILES['file']['name'];
             $nombreFichero = $idUnico."-".$_FILES['file']['name'];
             $copiarFichero = true;
             // I use absolute route to move_uploaded_file because this happens when i run ajax
@@ -92,7 +94,7 @@ function upload_files() {
                 return $return=array('resultado'=>false,'error'=>$error,'datos'=>"");
             }
             //We need edit $upfile because now i don't need absolute route.
-            //$upfile ='media/'.$nombreFichero;
+            $upfile ='media/'.$nombreFichero;
             return $return=array('resultado'=>true , 'error'=>$error,'datos'=>$upfile);
         }
         if($_FILES['file']['error'] !== 0) { //Assignarem a l'us default-avatar
@@ -105,9 +107,9 @@ function upload_files() {
 }
 
 function remove_files(){
-	$name = $_POST["filename"];
+	$name =$_POST["filename"];
 	if(file_exists($_SERVER['DOCUMENT_ROOT'].'/products_v3/media/'.$name)){
-	unlink($_SERVER['DOCUMENT_ROOT'].'products_v3/media/'.$name);
+	unlink($_SERVER['DOCUMENT_ROOT'].'/products_v3/media/'.$name);
 		return true;
 	}else{
 		return false;

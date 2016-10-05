@@ -445,3 +445,53 @@
 [02-Oct-2016 13:33:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/products_v3/modules/products/utils/functions_products.inc.php on line 223
 [02-Oct-2016 13:33:39 UTC] PHP Stack trace:
 [02-Oct-2016 13:33:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 19:26:10 UTC] PHP Warning:  unlink(/home/ubuntu/workspaceproducts_v3/media/): No such file or directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 19:26:10 UTC] PHP Stack trace:
+[02-Oct-2016 19:26:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 19:26:10 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 19:26:10 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 19:28:40 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 19:28:40 UTC] PHP Stack trace:
+[02-Oct-2016 19:28:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 19:28:40 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 19:28:40 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 20:55:10 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 20:55:10 UTC] PHP Stack trace:
+[02-Oct-2016 20:55:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 20:55:10 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 20:55:10 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 20:56:09 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 20:56:09 UTC] PHP Stack trace:
+[02-Oct-2016 20:56:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 20:56:09 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 20:56:09 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 20:57:39 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 20:57:39 UTC] PHP Stack trace:
+[02-Oct-2016 20:57:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 20:57:39 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 20:57:39 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 20:58:14 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 20:58:14 UTC] PHP Stack trace:
+[02-Oct-2016 20:58:14 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 20:58:14 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 20:58:14 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 21:02:04 UTC] PHP Warning:  unlink(/home/ubuntu/workspace/products_v3/media/): Is a directory in /home/ubuntu/workspace/products_v3/utils/upload.php on line 111
+[02-Oct-2016 21:02:04 UTC] PHP Stack trace:
+[02-Oct-2016 21:02:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 21:02:04 UTC] PHP   2. remove_files() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:98
+[02-Oct-2016 21:02:04 UTC] PHP   3. unlink() /home/ubuntu/workspace/products_v3/utils/upload.php:111
+[02-Oct-2016 22:09:54 UTC] PHP Fatal error:  Call to undefined function debug() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 118
+[02-Oct-2016 22:09:54 UTC] PHP Stack trace:
+[02-Oct-2016 22:09:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 22:11:34 UTC] PHP Fatal error:  Call to undefined function debug() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 118
+[02-Oct-2016 22:11:34 UTC] PHP Stack trace:
+[02-Oct-2016 22:11:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 22:11:52 UTC] PHP Fatal error:  Call to undefined function debug() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 118
+[02-Oct-2016 22:11:52 UTC] PHP Stack trace:
+[02-Oct-2016 22:11:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 22:12:44 UTC] PHP Fatal error:  Call to undefined function debug() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 118
+[02-Oct-2016 22:12:44 UTC] PHP Stack trace:
+[02-Oct-2016 22:12:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
+[02-Oct-2016 22:12:55 UTC] PHP Fatal error:  Call to undefined function debug() in /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php on line 118
+[02-Oct-2016 22:12:55 UTC] PHP Stack trace:
+[02-Oct-2016 22:12:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/products_v3/modules/products/controller/controller_products.class.php:0
