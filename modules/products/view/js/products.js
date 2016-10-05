@@ -17,7 +17,7 @@ jQuery.fn.fill_or_clean = function () {
             }
         });
 
-/*
+
 
         if ($("#code").attr("value") == "") {
             $("#code").attr("value", "Enter code");
@@ -124,7 +124,7 @@ jQuery.fn.fill_or_clean = function () {
             }
         });
 
-*/
+
     });//each
     return this;
 
@@ -166,6 +166,50 @@ $(document).ready(function () {
 
 
   		});
+
+      //Control de seguridad para evitar que al volver atrás de la pantalla results a create, no nos imprima los datos
+   $.get("modules/users/controller/controller_users.class.php?load_data=true",
+           function (response) {
+               //alert(response.products);
+               if (response.products === "") {
+                   $("#name").val('');
+                   $("#code").val('');
+                   $("#origin").val('');
+                   $("#provider").val('');
+                   $("#email").val('');
+                   $("#price").val('');
+                   $("#description").val('');
+                   $("#date_reception").val('');
+                   $("#departure_date").val('');
+                   var inputElements = document.getElementsByClassName('messageCheckbox');
+                   for (var i = 0; i < inputElements.length; i++) {
+                       if (inputElements[i].checked) {
+                           inputElements[i].checked = false;
+                       }
+                   }
+                   //siempre que creemos un plugin debemos llamarlo, sino no funcionará
+   $(this).fill_or_clean();
+               } else {
+                   $("#name").val( response.products.name);
+                   $("#code").val( response.products.code);
+                   $("#origin").val( response.products.origin);
+                   $("#provider").val( response.products.provider);
+                   $("#email").val( response.products.email);
+                   $("#price").val( response.products.price);
+                   $("#description").val( response.products.description);
+                   $("#date_reception").val( response.products.date_reception);
+                   $("#departure_date").val( response.products.departure_date);
+                   var material = response.products.material;
+                   var inputElements = document.getElementsByClassName('messageCheckbox');
+                   for (var i = 0; i < material.length; i++) {
+                       for (var j = 0; j < inputElements.length; j++) {
+                           if(material[i] ===inputElements[j] )
+                               inputElements[j].checked = true;
+                       }
+                   }
+               }
+           }, "json");
+
 
 
     //Dropzone function //////////////////////////////////
@@ -232,7 +276,7 @@ $(document).ready(function () {
         }
     });
 
-    $(this).fill_or_clean(); //siempre que creemos un plugin debemos llamarlo, sino no funcionará
+    //$(this).fill_or_clean(); //siempre que creemos un plugin debemos llamarlo, sino no funcionará
 
     var email_reg = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
     var date_reg = /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d$/;
@@ -245,6 +289,8 @@ $(document).ready(function () {
     var provider_reg = /^[0-9a-zA-Z]{2,20}$/;
     var price_reg = /^[0-9]{2,10}$/;
 
+
+//////////////submit_product///////////
 
     $("#submit_product").click(function () {
 
@@ -333,6 +379,23 @@ function validate_products(){
     var result = true;
     //Get form elements by id
     var name = document.getElementById('name').value;
+    var code = document.getElementById('code').value;
+    var origin = document.getElementById('origin').value;
+    var provider = document.getElementById('provider').value;
+    var email = document.getElementById('email').value;
+    var price = document.getElementById('price').value;
+    var description = document.getElementById('description').value;
+    var date_reception = document.getElementById('date_reception').value;
+    var departure_date = document.getElementById('departure_date').value;
+    var material = [];
+    var inputElements = document.getElementsByClassName('messageCheckbox');
+    var j = 0;
+    for (var i = 0; i < inputElements.length; i++) {
+       if (inputElements[i].checked) {
+           material[j] = inputElements[i].value;
+           j++;
+       }
+   }
 
 
     var email_reg = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
@@ -358,7 +421,7 @@ function validate_products(){
             result = false;
             return false;
         }
-/*
+
 
         else if ($("#code").val() == "" || $("#code").val() == "Enter code") {
             $("#code").focus().after("<span class='error'>Enter code</span>");
@@ -428,7 +491,7 @@ function validate_products(){
             return false;
         }
 
-        */
+
 
     console.log("Antes de que se envian los datos al servidor");
     //Si ha ido todo bien, se envian los datos al servidor
@@ -455,6 +518,35 @@ function validate_products(){
 
         }, "json").fail(function (xhr) {
             console.log(xhr.responseJSON.error.name);//devuelve si hay error en el nombre
+
+            if (xhr.responseJSON.error.name)
+              $("#name").focus().after("<span  class='error1'>" + xhr.responseJSON.error.name + "</span>");
+
+            if (xhr.responseJSON.error.code)
+              $("#code").focus().after("<span  class='error1'>" + xhr.responseJSON.error.code + "</span>");
+
+            if (xhr.responseJSON.error.origin)
+              $("#origin").focus().after("<span  class='error1'>" + xhr.responseJSON.error.origin + "</span>");
+
+            if (xhr.responseJSON.error.provider)
+              $("#provider").focus().after("<span  class='error1'>" + xhr.responseJSON.error.provider + "</span>");
+
+            if (xhr.responseJSON.error.email)
+              $("#email").focus().after("<span  class='error1'>" + xhr.responseJSON.error.email + "</span>");
+
+            if (xhr.responseJSON.error.price)
+              $("#price").focus().after("<span  class='error1'>" + xhr.responseJSON.error.price + "</span>");
+
+            if (xhr.responseJSON.error.description)
+              $("#description").focus().after("<span  class='error1'>" + xhr.responseJSON.error.description + "</span>");
+
+            if (xhr.responseJSON.error.date_reception)
+              $("#date_reception").focus().after("<span  class='error1'>" + xhr.responseJSON.error.date_reception + "</span>");
+
+            if (xhr.responseJSON.error.departure_date)
+              $("#departure_date").focus().after("<span  class='error1'>" + xhr.responseJSON.error.departure_date + "</span>");
+
+
         });
     }
 
