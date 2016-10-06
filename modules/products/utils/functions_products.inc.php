@@ -6,7 +6,7 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
     $filtro = array(//De momento solo pruebo el nombre
         'name' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
-          'options' => array('regexp' => '/^[A-Z]{2,30}$/')
+          'options' => array('regexp' => '/^[a-zA-Z]{2,30}$/')
         ),
         'code' => array(
             'filter' => FILTER_VALIDATE_REGEXP,
@@ -48,16 +48,16 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
 
 
     //no filter
-    $resultado['type'] = $_POST['type'];
-    $resultado['shape'] = $_POST['shape'];
-    $resultado['brand'] = $_POST['brand'];
-    $resultado['stock'] = $_POST['stock'];
-    $resultado['material'] = $_POST['material'];
+    $resultado['type'] = $productsJSON['type'];
+    $resultado['shape'] = $productsJSON['shape'];
+    $resultado['brand'] = $productsJSON['brand'];
+    $resultado['stock'] = $productsJSON['stock'];
+    $resultado['material'] = $productsJSON['material'];
 
 
     if ($resultado['date_reception'] && $resultado['departure_date']) {
-        //compare date of birth with title_date
-        $dates = valida_dates($_POST['date_reception'], $_POST['departure_date']);
+
+        $dates = valida_dates($resultado['date_reception'], $resultado['departure_date']);
 
 
         if (!$dates) {
@@ -68,29 +68,28 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
     }
 
 
-    if ($_POST['type'] === 'Select type') {
+    if ($resultado['type'] === 'Select type') {
         $error['type'] = "You haven't select type.";
         $valido = false;
     }
 
 
-    if ($_POST['shape'] === 'Select Shape') {
+    if ($resultado['shape'] === 'Select Shape') {
         $error['shape'] = "You haven't select shape.";
         $valido = false;
     }
 
 
-    if ($_POST['brand'] === 'Select brand') {
+    if ($resultado['brand'] === 'Select brand') {
         $error['brand'] = "You haven't select brand.";
         $valido = false;
     }
 
 
-    if (count($_POST['material']) <= 1) {
+    if (count($resultado['material']) <= 1) {
         $error['material'] = "Select 2 or more.";
         $valido =  false;
     }
-
 
 
 
@@ -119,7 +118,7 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
 
 
         if (!$resultado['provider']) {
-            $error['provider'] = 'Code must be 6 to 30 letters';
+            $error['provider'] = 'Provider must be 6 to 30 letters';
             $valido = false;
         }
 
@@ -155,7 +154,7 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
             }
         }
 
-        
+
     } else {
 
         $valido = false;

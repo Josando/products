@@ -17,14 +17,13 @@ session_start();
 	function discharge_products() {//Ahora que se que funciona dropzone implemento la funcion completa de cargar los productos
 	  	$jsondata = array();
 	  	$productsJSON = json_decode($_POST["discharge_products_json"], true);
-	 /*
-		$jsondata["name"]=$productsJSON['name'];
 
-		$jsondata["success"]=true;
+	//	$jsondata["name"]=$productsJSON['name'];
 
-	  echo json_encode($jsondata);
+	//	$jsondata["success"]=true;
 
-	 */
+	//  echo json_encode($jsondata);
+
 	  	$result = validate_products($productsJSON);
 
 	//	$result['resultado']=true;
@@ -38,19 +37,19 @@ session_start();
 	   if (($result['resultado']) && ($result_avatar['resultado'])) {
         $arrArgument = array(
             'name' => ucfirst($result['datos']['name']),
-           // 'code' => ($result['datos']['code']),
-           // 'origin' => $result['datos']['origin'],
-           // 'provider' => $result['datos']['provider'],
-           // 'email' => $result['datos']['email'],
-           // 'price' => $result['datos']['price'],
-           // 'description' => ucfirst($result['datos']['description']),
-           // 'material' => $result['datos']['material'],
-           // 'type' => ($result['datos']['type']), //strtoupper > para convertir string a mayusculas
-           // 'shape' => ($result['datos']['shape']),
-           // 'brand' => ($result['datos']['brand']),
-          //  'stock' => $result['datos']['stock'],
-          //  'date_reception' => $result['datos']['date_reception'],
-          //  'departure_date' => $result['datos']['departure_date'],
+            'code' => ($result['datos']['code']),
+           'origin' => $result['datos']['origin'],
+            'provider' => $result['datos']['provider'],
+            'email' => $result['datos']['email'],
+            'price' => $result['datos']['price'],
+            'description' => ucfirst($result['datos']['description']),
+            'material' => $result['datos']['material'],
+            'type' => ($result['datos']['type']), //strtoupper > para convertir string a mayusculas
+            'shape' => ($result['datos']['shape']),
+            'brand' => ($result['datos']['brand']),
+            'stock' => $result['datos']['stock'],
+            'date_reception' => $result['datos']['date_reception'],
+            'departure_date' => $result['datos']['departure_date'],
         	  'avatar' => $result_avatar['datos']
 
         );
@@ -82,8 +81,7 @@ session_start();
         }
         header('HTTP/1.0 400 Bad error');
         echo json_encode($jsondata);
-
-        exit;
+        //exit;
 
     }
 
@@ -108,7 +106,7 @@ if (isset($_GET["delete"]) && $_GET["delete"] == true) {
 if ((isset($_GET["upload"])) && ($_GET["upload"] == true)) {
 		$result_avatar = upload_files();
 		$_SESSION['result_avatar'] = $result_avatar;
-		echo json_encode($result_avatar);
+		//echo json_encode($result_avatar);
 	//	exit();
 }
 ///////////////////////////
@@ -122,15 +120,34 @@ if (isset($_GET["load"]) && $_GET["load"] == true) {
         //echo $_SESSION['msje'];
         $jsondata["msje"] = $_SESSION['msje'];
     }
-    //close_session();
+    close_session();
     echo json_encode($jsondata);
-    exit;
+    //exit;
+}
+
+function close_session() {
+    unset($_SESSION['products']);
+    unset($_SESSION['msje']);
+    $_SESSION = array(); // Destruye todas las variables de la sesión
+    session_destroy(); // Destruye la sesión
 }
 
 
 
+/////////////////////////////////////////////////// load_data
+if ((isset($_GET["load_data"])) && ($_GET["load_data"] == true)) {
+    $jsondata = array();
 
-
+    if (isset($_SESSION['products'])) {
+        $jsondata["products"] = $_SESSION['products'];
+        echo json_encode($jsondata);
+        exit;
+    } else {
+        $jsondata["products"] = "";
+        echo json_encode($jsondata);
+        exit;
+    }
+}
 
 
 

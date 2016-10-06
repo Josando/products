@@ -168,9 +168,9 @@ $(document).ready(function () {
   		});
 
       //Control de seguridad para evitar que al volver atrás de la pantalla results a create, no nos imprima los datos
-   $.get("modules/users/controller/controller_users.class.php?load_data=true",
+   $.get("modules/products/controller/controller_products.class.php?load_data=true",
            function (response) {
-               //alert(response.products);
+               //console.log(response.products);
                if (response.products === "") {
                    $("#name").val('');
                    $("#code").val('');
@@ -181,6 +181,9 @@ $(document).ready(function () {
                    $("#description").val('');
                    $("#date_reception").val('');
                    $("#departure_date").val('');
+                   $("#type").val('Select type');
+                   $("#shape").val('Select Shape');
+                   $("#brand").val('Select brand');
                    var inputElements = document.getElementsByClassName('messageCheckbox');
                    for (var i = 0; i < inputElements.length; i++) {
                        if (inputElements[i].checked) {
@@ -199,6 +202,9 @@ $(document).ready(function () {
                    $("#description").val( response.products.description);
                    $("#date_reception").val( response.products.date_reception);
                    $("#departure_date").val( response.products.departure_date);
+                   $("#type").val( response.products.type);
+                   $("#shape").val( response.products.shape);
+                   $("#brand").val( response.products.brand);
                    var material = response.products.material;
                    var inputElements = document.getElementsByClassName('messageCheckbox');
                    for (var i = 0; i < material.length; i++) {
@@ -387,6 +393,16 @@ function validate_products(){
     var description = document.getElementById('description').value;
     var date_reception = document.getElementById('date_reception').value;
     var departure_date = document.getElementById('departure_date').value;
+    var stock = "yes";
+    if (document.getElementById('stock_yes').checked){
+      stock = "yes";
+    }else {
+      stock = "no;"
+    }
+
+    var type = document.getElementById('type').value;
+    var shape = document.getElementById('shape').value;
+    var brand = document.getElementById('brand').value;
     var material = [];
     var inputElements = document.getElementsByClassName('messageCheckbox');
     var j = 0;
@@ -396,6 +412,8 @@ function validate_products(){
            j++;
        }
    }
+
+
 
 
     var email_reg = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
@@ -445,49 +463,61 @@ function validate_products(){
 
         else if ($("#provider").val() == "" || $("#provider").val() == "Enter provider") {
             $("#provider").focus().after("<span class='error'>Code must be 6 to 30 letters</span>");
+            result = false;
             return false;
         } else if (!provider_reg.test($("#provider").val())) {
             $("#provider").focus().after("<span class='error'>Enter provider</span>");
+            result = false;
             return false;
         }
 
         if ($("#email").val() == "" || $("#email").val() == "Enter email") {
             $("#email").focus().after("<span class='error'>Enter email</span>");
+            result = false;
             return false;
         } else if (!email_reg.test($("#email").val())) {
             $("#email").focus().after("<span class='error'>Email is not correct.</span>");
+            result = false;
             return false;
         }
 
         if ($("#price").val() == "" || $("#price").val() == "Enter price") {
             $("#price").focus().after("<span class='error'>Enter price</span>");
+            result = false;
             return false;
         } else if (!price_reg.test($("#price").val())) {
             $("#price").focus().after("<span class='error'>price must be 2 to 10 numbers</span>");
+            result = false;
             return false;
         }
 
         if ($("#description").val() == "" || $("#description").val() == "Enter description") {
             $("#description").focus().after("<span class='error'>Enter description</span>");
+            result = false;
             return false;
         } else if (!description_reg.test($("#description").val())) {
             $("#description").focus().after("<span class='error'>Description must be 2 to 30 characters.</span>");
+            result = false;
             return false;
         }
 
         if ($("#date_reception").val() == "" || $("#date_reception").val() == "Enter date reception") {
             $("#date_reception").focus().after("<span class='error'>Enter date reception</span>");
+            result = false;
             return false;
         } else if (!date_reg.test($("#date_reception").val())) {
             $("#date_reception").focus().after("<span class='error'>The date is not correct</span>");
+            result = false;
             return false;
         }
 
         if ($("#departure_date").val() == "" || $("#departure_date").val() == "Enter departure date") {
             $("#departure_date").focus().after("<span class='error'>Enter departure date</span>");
+            result = false;
             return false;
         } else if (!date_reg.test($("#departure_date").val())) {
             $("#departure_date").focus().after("<span class='error'>The date is not correct.</span>");
+            result = false;
             return false;
         }
 
@@ -498,15 +528,17 @@ function validate_products(){
 
      if (result) {
 
-        var data = {"name": name};
+        var data = {"name": name, "code": code, "origin": origin, "provider": provider, "email": email, "price": price, "description": description, "date_reception": date_reception,
+        "departure_date": departure_date, "stock":stock, "type":type, "shape":shape, "brand":brand, "material":material};
 
         var data_products_JSON = JSON.stringify(data);
 
+        console.log(data_products_JSON);
 
         $.post('modules/products/controller/controller_products.class.php',
                 {discharge_products_json: data_products_JSON},
         function (response) {
-            //console.log("hola");
+            console.log("hola");
             console.log(response);
             if (response.success) {
                 window.location.href = response.redirect;
@@ -517,7 +549,7 @@ function validate_products(){
             //console.log(response.redirect3.product_name);
 
         }, "json").fail(function (xhr) {
-            console.log(xhr.responseJSON.error.name);//devuelve si hay error en el nombre
+            console.log(xhr.responseJSON.error.brand);//devuelve si hay error en el nombre
 
             if (xhr.responseJSON.error.name)
               $("#name").focus().after("<span  class='error1'>" + xhr.responseJSON.error.name + "</span>");
@@ -546,6 +578,17 @@ function validate_products(){
             if (xhr.responseJSON.error.departure_date)
               $("#departure_date").focus().after("<span  class='error1'>" + xhr.responseJSON.error.departure_date + "</span>");
 
+            if (xhr.responseJSON.error.type)
+              $("#type").focus().after("<span  class='error1'>" + xhr.responseJSON.error.type + "</span>");
+
+            if (xhr.responseJSON.error.shape)
+              $("#shape").focus().after("<span  class='error1'>" + xhr.responseJSON.error.shape + "</span>");
+
+            if (xhr.responseJSON.error.brand)
+              $("#brand").focus().after("<span  class='error1'>" + xhr.responseJSON.error.brand + "</span>");
+
+            if (xhr.responseJSON.error.material)
+              $("#material").focus().after("<span  class='error1'>" + xhr.responseJSON.error.material + "</span>");
 
         });
     }

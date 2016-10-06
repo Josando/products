@@ -100,9 +100,10 @@
 
 
 
-         	<tr>
+
+         	<tr >
 			  <td><label for="material"><b>Material:</b></label></td>
-			  <td>Carbon<input type="checkbox" name="material[]" value="Carbon" class="messageCheckbox">
+			  <td id="material">Carbon<input type="checkbox" name="material[]" value="Carbon" class="messageCheckbox">
 					Fiberglass  <input type="checkbox" name="material[]" value="Fiberglass" class="messageCheckbox">
 					Graphite <input type="checkbox" name="material[]" value="Graphite" class="messageCheckbox">
 					Grafeno   <input type="checkbox" name="material[]" value="Grafeno" class="messageCheckbox"></td>
@@ -115,7 +116,7 @@
 
          <tr>
              <td><label><b>Stock:</b></label></td>
-             <td><input id='stock_yes' name="stock" class="element radio" type="radio" value="Yes" checked="checked"/>
+             <td><input id='stock_yes' name="stock" class="element radio" type="radio" value="Yes" checked/>
              <label>yes</label>
               <input id='stock_no'name="stock" class="element radio" type="radio" value="No"/>
               <label>No</label></td>
@@ -150,9 +151,9 @@
 
           <label><b>Shovel type:</b></label>
 
-        <select name="type">
+        <select name="type" id="type">
 
-           <option selected>Select type</option>
+           <option value="Select type" selected>Select type</option>
            <option value="Control">Control</option>
            <option value="Power">Power</option>
            <option value="Balance">Balance</option>
@@ -167,9 +168,9 @@
 
           <label><b>Shape shovel:</b></label>
 
-        <select name="shape">
+        <select name="shape" id="shape">
 
-           <option selected>Select Shape</option>
+           <option value="Select Shape" selected>Select Shape</option>
            <option value="Round">Round</option>
            <option value="Tear">Tear</option>
            <option value="Diamond">Diamond</option>
@@ -181,26 +182,18 @@
 
         </p>
 
-     <p>
-
-          <label><b>Shovel brand:</b></label>
-
-        <select name="brand">
-
-            <option selected>Select brand</option>
+     <p><label><b>Shovel brand:</b></label>
+        <select name="brand" id="brand">
+            <option value="Select brand" selected>Select brand</option>
             <option value="Vivora">Vivora</option>
             <option value="Nox">Nox</option>
             <option value="Durus">Durus</option>
             <option value="Adidas">Adidas</option>
             <option value="Start_vite">Start_vite</option>
-
-
         </select>
-
          <div id="e_brand" ></div>
-
         </p>
-
+        <br>
         <div  id="progress">
                         <div id="bar"></div>
                         <div id="percent">0%</div >
