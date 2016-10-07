@@ -16,7 +16,7 @@ session_start();
 
 	function discharge_products() {//Ahora que se que funciona dropzone implemento la funcion completa de cargar los productos
 	  	$jsondata = array();
-	  	$productsJSON = json_decode($_POST["discharge_products_json"], true);
+			$productsJSON = json_decode($_POST["discharge_products_json"], true);
 
 	//	$jsondata["name"]=$productsJSON['name'];
 

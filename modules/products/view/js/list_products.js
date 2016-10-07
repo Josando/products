@@ -71,47 +71,63 @@ function list_products(data) {
     console.log(data.msje);
 
     var name = document.createElement("div");
-   name.innerHTML = "name = ";
+   name.innerHTML = "Name = ";
    name.innerHTML += data.products.name;
-/*
-    var last_name = document.createElement("div");
-    last_name.innerHTML = "last_name = ";
-    last_name.innerHTML += data.user.last_name;
 
-    var date_birthday = document.createElement("div");
-    date_birthday.innerHTML = "date_birthday = ";
-    date_birthday.innerHTML += data.user.birth_date;
+    var code = document.createElement("div");
+    code.innerHTML = "Code = ";
+    code.innerHTML += data.products.code;
 
-    var title_date = document.createElement("div");
-    title_date.innerHTML = "title_date = ";
-    title_date.innerHTML += data.user.title_date;
+    origin = document.createElement("div");
+    origin.innerHTML = "Origin = ";
+    origin.innerHTML += data.products.origin;
 
-    var address = document.createElement("div");
-    address.innerHTML = "address = ";
-    address.innerHTML += data.user.address;
-
-    var user = document.createElement("div");
-    user.innerHTML = "user = ";
-    user.innerHTML += data.user.user;
-
-    var pass = document.createElement("div");
-    pass.innerHTML = "pass = ";
-    pass.innerHTML += data.user.pass;
+    var provider = document.createElement("div");
+    provider.innerHTML = "Provider = ";
+    provider.innerHTML += data.products.provider;
 
     var email = document.createElement("div");
-    email.innerHTML = "email = ";
-    email.innerHTML += data.user.email;
+    email.innerHTML = "Email = ";
+    email.innerHTML += data.products.email;
 
-    var en_lvl = document.createElement("div");
-    en_lvl.innerHTML = "en_lvl = ";
-    en_lvl.innerHTML += data.user.en_lvl;
+    var price = document.createElement("div");
+    price.innerHTML = "Price = ";
+    price.innerHTML += data.products.price;
 
-    var interests = document.createElement("div");
-    material.innerHTML = "interests = ";
+    var description = document.createElement("div");
+    description.innerHTML = "Description = ";
+    description.innerHTML += data.products.description;
+
+    var stock = document.createElement("div");
+    stock.innerHTML = "Stock = ";
+    stock.innerHTML += data.products.stock;
+
+    var material = document.createElement("div");
+    material.innerHTML = "Material = ";
     for(var i =0;i < data.products.material.length;i++){
     material.innerHTML += " - "+data.products.material[i];
     }
-*/
+
+    var date_reception = document.createElement("div");
+    date_reception.innerHTML = "Date_reception = ";
+    date_reception.innerHTML += data.products.date_reception;
+
+    var departure_date = document.createElement("div");
+    departure_date.innerHTML = "Departure_date = ";
+    departure_date.innerHTML += data.products.departure_date;
+
+    var type = document.createElement("div");
+    type.innerHTML = "Sholve type = ";
+    type.innerHTML += data.products.type;
+
+    var shape = document.createElement("div");
+    shape.innerHTML = "Shape Sholve= ";
+    shape.innerHTML += data.products.shape;
+
+    var brand = document.createElement("div");
+    brand.innerHTML = "Sholve brand = ";
+    brand.innerHTML += data.products.brand;
+
     //arreglar ruta IMATGE!!!!!
 
     var cad = data.products.avatar;
@@ -120,20 +136,23 @@ function list_products(data) {
     var img = document.createElement("div");
     var html = '<img src="' + cad + '" height="75" width="75"> ';
     img.innerHTML = html;
-    alert(html);
+    //alert(html);
 
     div_products.appendChild(parrafo);
     parrafo.appendChild(msje);
     parrafo.appendChild(name);
-    //parrafo.appendChild(last_name);
-  //  parrafo.appendChild(date_birthday);
-  //  parrafo.appendChild(title_date);
-  //  parrafo.appendChild(address);
-  //  parrafo.appendChild(en_lvl);
-//parrafo.appendChild(user);
-  //  parrafo.appendChild(pass);
-//    parrafo.appendChild(email);
-//    parrafo.appendChild(interests);
-   content.appendChild(div_products);
-   content.appendChild(img);
+    parrafo.appendChild(code);
+    parrafo.appendChild(origin);
+    parrafo.appendChild(provider);
+    parrafo.appendChild(price);
+    parrafo.appendChild(description);
+    parrafo.appendChild(stock);
+    parrafo.appendChild(material);
+    parrafo.appendChild(date_reception);
+    parrafo.appendChild(departure_date);
+    parrafo.appendChild(type);
+    parrafo.appendChild(shape);
+    parrafo.appendChild(brand);
+    content.appendChild(div_products);
+    content.appendChild(img);
 }

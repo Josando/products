@@ -6,10 +6,11 @@
 -->
 <html>
 	<head>
-		<title>Top_Padel meke your improve</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+    <title>Top_Padel|<?php if($_GET['module']){ echo $_GET['module'];}else{ echo "homepage";} ?></title>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="view/js/skel.min.js"></script>
@@ -19,7 +20,7 @@
 			<!--<link rel="stylesheet" href="view/css/skel-noscript.css" />-->
 		<!--	<link rel="stylesheet" href="view/css/style.css" />-->
 		<link rel="stylesheet" href="view/css/style-desktop.css" />
-
+		<link rel="shortcut icon" href="view/images/logo0.jpg">
 		<!--<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>-->
 
 

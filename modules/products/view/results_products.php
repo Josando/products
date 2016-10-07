@@ -3,10 +3,10 @@
             <h2>ADD PRODUCT</h2>
             <p class="lead">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-
+						<div>
              <div id="content"></div>
              <script type="text/javascript" src="modules/products/view/js/list_products.js" ></script>
-
+						 </div>
 
 
 

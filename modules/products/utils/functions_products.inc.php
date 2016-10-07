@@ -139,7 +139,7 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
                 $error['date_reception'] = "This camp can't empty";
                 $valido = false;
             } else {
-                $error['date_reception'] = 'Error format date (mm/dd/yyyy)';
+                $error['date_reception'] = 'Error format date (dd/mm/yyyy)';
                 $valido = false;
             }
         }
@@ -149,7 +149,7 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
                 $error['departure_date'] = "This camp can't empty";
                 $valido = false;
             } else {
-                $error['departure_date'] = 'Error format date (mm/dd/yyyy)';
+                $error['departure_date'] = 'Error format date (dd/mm/yyyy)';
                 $valido = false;
             }
         }
@@ -167,25 +167,21 @@ function validate_products($productsJSON) {//Le entraran los valores decodificad
 
 function valida_dates($in_date, $out_date) {
 
-    $in_date = date("m/d/Y", strtotime($in_date));
-    $out_date = date("m/d/Y", strtotime($out_date));
+  $start_day = date("d/m/Y", strtotime($in_date));
+    $daylight = date("d/m/Y", strtotime($out_date));
 
-    list($mes_one, $dia_one, $anio_one) = split('/', $in_date);
-    list($mes_two, $dia_two, $anio_two) = split('/', $out_date);
+    list( $dia_one, $mes_one, $anio_one) = split('/', $start_day);
+    list( $dia_two, $mes_two, $anio_two) = split('/', $daylight);
 
-    $dateOne = new DateTime($anio_one . "-" . $mes_one . "-" . $dia_one);
-    $dateTwo = new DateTime($anio_two . "-" . $mes_two . "-" . $dia_two);
+    $dateOne = new DateTime($dia_one . "-" . $mes_one . "-" . $anio_one);
+    $dateTwo = new DateTime($dia_two . "-" . $mes_two . "-" . $anio_two);
 
-
-    if ($dateOne <= $dateTwo && $dateTwo >= $dateOne ) {
-
-
+    if ($dateOne <= $dateTwo && $dateTwo >= $dateOne) {
         return true;
     }
     return false;
-
-
 }
+
 
 
 //validate email

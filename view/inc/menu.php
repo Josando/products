@@ -1,8 +1,8 @@
 <body class="homepage">
-	
+
 <!-- Header -->
 		<div id="header">
-			<div id="nav-wrapper"> 
+			<div id="nav-wrapper">
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
@@ -11,12 +11,12 @@
 						<li><a href="left-sidebar.html">Left Sidebar</a></li>
 						<li><a href="right-sidebar.html">Right Sidebar</a></li>
 						<li><a href="index.php?module=about">About</a></li>
-					
+
 					</ul>
 				</nav>
 			</div>
-			<div class="container"> 
-				
+			<div class="container">
+
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">Top padel</a></h1>

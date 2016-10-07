@@ -397,7 +397,7 @@ function validate_products(){
     if (document.getElementById('stock_yes').checked){
       stock = "yes";
     }else {
-      stock = "no;"
+      stock = "no";
     }
 
     var type = document.getElementById('type').value;
@@ -578,8 +578,11 @@ function validate_products(){
             if (xhr.responseJSON.error.departure_date)
               $("#departure_date").focus().after("<span  class='error1'>" + xhr.responseJSON.error.departure_date + "</span>");
 
-            if (xhr.responseJSON.error.type)
+            if (xhr.responseJSON.error.type){
               $("#type").focus().after("<span  class='error1'>" + xhr.responseJSON.error.type + "</span>");
+}else {
+
+}
 
             if (xhr.responseJSON.error.shape)
               $("#shape").focus().after("<span  class='error1'>" + xhr.responseJSON.error.shape + "</span>");

@@ -126,7 +126,7 @@
 
          <tr>
             <td><label><b>Product date reception:</b></label></td>
-             <td> <input id="date_reception" type="text" name="date_reception" placeholder="mm/dd/yyyy" value=""></td>
+             <td> <input id="date_reception" type="text" name="date_reception" placeholder="dd/mm/yyyy" value=""></td>
 
               <td> <div id="e_date_reception" ></div></td>
 
@@ -136,7 +136,7 @@
           <tr>
 
             <td><label><b>Product departure date:</b></label></td>
-             <td> <input id="departure_date" type="text" name="departure_date" placeholder="mm/dd/yyyy" value=""></td>
+             <td> <input id="departure_date" type="text" name="departure_date" placeholder="dd/mm/yyyy" value=""></td>
 
               <td> <div id="e_departure_date" ></div></td>
 
